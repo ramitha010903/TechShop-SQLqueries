@@ -1,0 +1,81 @@
+-- 1. Create the database
+USE TechShop;
+-- Customers Table
+/*CREATE TABLE Customers (
+    CustomersID INT PRIMARY KEY,
+    CustomerName VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) UNIQUE NOT NULL,
+    Phone VARCHAR(15),
+);*/
+-- Products Table
+/*CREATE TABLE Products(
+ ProductID INT PRIMARY KEY,
+ ProductName VARCHAR(100) NOT NULL,
+ Price INT NOT NULL 
+ );*/
+ --Order Table
+ /*CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    TotalAmount INT
+	);
+	-- OrderDetails Table
+CREATE TABLE OrderDetails (
+    OrderDetailID INT PRIMARY KEY,
+    OrderID INT,
+    ProductID INT,
+    Quantity INT NOT NULL,
+    Price DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
+);
+
+-- Inventory Table
+CREATE TABLE Inventory (
+    InventoryID INT  PRIMARY KEY,
+    ProductID INT,
+    Quantity INT NOT NULL,
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID) 
+);*/
+-- Insert data into Customers
+/*INSERT INTO Customers(CustomersID , Name, Email, Phone) VALUES
+(101,'John', 'john@example.com', '1234567890'),
+(102,'Jane', 'jane@example.com', '9876543210'),
+(103,'Alice', 'alice@example.com', '6543217890'),
+(104,'Aathi', 'aathi@example.com', '1231231234'),
+(105,'Ramitha', 'ramitha@example.com', '3213214321');*/
+
+-- Insert data into Products
+/*INSERT INTO Products (ProductID, ProductName, Price) VALUES
+(15,'Laptop', 8000),
+(18,'Smartphone', 50000),
+(19,'Headphones', 500),
+(22,'Keyboard', 3000),
+(35,'Mouse', 2000);*/
+
+-- Insert data into Orders
+/*INSERT INTO Orders (OrderID, CustomerID, TotalAmount) VALUES
+(1,101, 8500),
+(2,102, 5000),
+(3,103, 1000),
+(4,104, 6000),
+(5,105, 9000);*/
+--Inset INTO OrderDetails
+/*INSERT INTO OrderDetails (OrderID, ProductID, Quantity, Price) VALUES
+(1, 15, 1, 8000),
+(1, 35, 1, 5000),
+(2, 22, 1, 5000),
+(3, 35, 2, 50000),
+(4, 19, 2, 30000),
+(5, 15, 1, 8000),
+(5, 22, 1, 1000);*/
+
+-- Insert data into Inventory
+/*INSERT INTO Inventory (InventoryID, ProductID, Quantity) VALUES
+(12,15,2),
+(11,22,1),
+(14,35, 2),
+(10,15, 1),
+(14,22, 1);
+*/
+    
