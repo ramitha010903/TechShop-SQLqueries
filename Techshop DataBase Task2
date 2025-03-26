@@ -2,7 +2,7 @@
 --1. Retrieve the names and emails of all customers:
 SELECT CustomerName, Email FROM Customers;
 
---2. List all orders with their order dates and corresponding customer names:
+--2. List all orders with their corresponding customer names:
 SELECT Orders.OrderID, Customers.CustomerName, Orders.TotalAmount 
 FROM Orders
 JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
