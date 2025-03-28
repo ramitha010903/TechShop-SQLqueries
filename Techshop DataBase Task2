@@ -37,8 +37,11 @@ SET TotalAmount = (
 );
 
 --9. Delete all orders and order details for a specific customer (input CustomerID as a parameter):
-DELETE FROM OrderDetails WHERE OrderID IN (SELECT OrderID FROM Orders WHERE CustomerID = 101);
+DELETE OD FROM OrderDetails OD
+JOIN Orders O ON OD.OrderID = O.OrderID
+WHERE O.CustomerID = 101;
 DELETE FROM Orders WHERE CustomerID = 101;
+
 
 --10. Insert a new electronic gadget into the "Products" table:
 INSERT INTO Products (ProductID, ProductName, Price)
