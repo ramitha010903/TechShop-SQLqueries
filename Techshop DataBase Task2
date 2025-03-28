@@ -29,11 +29,12 @@ SET Email = 'newemail@example.com', Phone = '9999999999'
 WHERE CustomerID = 101;
 
 --8. Recalculate and update the total cost of each order:
-UPDATE Orders 
+UPDATE Orders
 SET TotalAmount = (
-    SELECT SUM(OrderDetails.Quantity * OrderDetails.Price)
-    FROM OrderDetails 
-    WHERE OrderDetails.OrderID = Orders.OrderID
+    SELECT SUM(Products.Price * OrderItems.Quantity)
+    FROM OrderItems
+    JOIN Products ON OrderItems.ProductID = Products.ProductID
+    WHERE OrderItems.OrderID = Orders.OrderID
 );
 
 --9. Delete all orders and order details for a specific customer (input CustomerID as a parameter):
@@ -53,7 +54,9 @@ SET OrderStatus = 'Shipped'
 WHERE OrderID = 2;
 
 --12. Calculate and update the number of orders placed by each customer:
-UPDATE Customers 
+UPDATE Customers
 SET OrderCount = (
-    SELECT COUNT(*) FROM Orders WHERE Orders.CustomerID = Customers.CustomerID
+    SELECT COUNT(*) 
+    FROM Orders 
+    WHERE Orders.CustomerID = Customers.CustomerID
 );
