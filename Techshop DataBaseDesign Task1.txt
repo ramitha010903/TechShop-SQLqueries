@@ -1,5 +1,7 @@
 -- 1. Create the database
+CREATE DATABASE TechShop;
 USE TechShop;
+
 
 -- Customers Table
 /*CREATE TABLE Customers (
