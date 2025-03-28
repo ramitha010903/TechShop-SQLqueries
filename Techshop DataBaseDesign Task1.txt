@@ -4,26 +4,27 @@ USE TechShop;
 
 
 -- Customers Table
-/*CREATE TABLE Customers (
-    CustomersID INT PRIMARY KEY,
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
     CustomerName VARCHAR(100) NOT NULL,
     Email VARCHAR(100) UNIQUE NOT NULL,
-    Phone VARCHAR(15),
-);*/
+    Phone VARCHAR(15)
+);
 
 -- Products Table
-/*CREATE TABLE Products(
- ProductID INT PRIMARY KEY,
- ProductName VARCHAR(100) NOT NULL,
- Price INT NOT NULL 
- );*/
+CREATE TABLE Products (
+    ProductID INT PRIMARY KEY,
+    ProductName VARCHAR(100) NOT NULL,
+    Price DECIMAL(10, 2) NOT NULL 
+);
 
---Order Table
- /*CREATE TABLE Orders (
+-- Orders Table
+CREATE TABLE Orders (
     OrderID INT PRIMARY KEY,
     CustomerID INT,
-    TotalAmount INT
-	);
+    TotalAmount DECIMAL(10, 2), -- Use DECIMAL for monetary values
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
 
 -- OrderDetails Table
 CREATE TABLE OrderDetails (
